@@ -1,0 +1,32 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+ int a[5],i,j,key,number;
+ cout << "Enter the number of elements you want : " << endl;
+ cin >> number;
+
+ for(i=0;i<number;i++)
+ {
+  cin >> a[i] ;
+ }
+
+ cout << "Elements after sorting : " << endl;
+
+ for(i=1 ; i<number ; i++)
+ {
+  key = a[i];
+  j=i-1;
+  while(j>=0 && a[i]>key)
+  {
+   a[j+1]=a[j];
+   j=j-1;
+  }
+  a[j+1] = key ;
+ }
+
+ for(i=0 ; i<number ; i++)
+ {
+  cout << "  " << a[i] ;
+ }
+}
