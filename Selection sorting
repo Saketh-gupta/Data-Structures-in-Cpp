@@ -1,0 +1,48 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+ int a[5],temp,i,j,min,index,number;
+ clrscr();
+
+ cout << "Enter the number of elements you want to enter: " << endl;
+ cin >> number ;
+
+ for(i=0;i<5;i++)
+ {
+  cin >> a[i] ;
+ }
+
+ cout << "Elements before sorting : " << endl;
+ for(i=0;i<5;i++)
+ {
+  cout << "  "  << a[i] ;
+ }
+
+ cout << "\nElements after Sorting : " << endl;
+ for(i=0 ; i<number-1 ; i++)
+ {
+  min = a[i];
+  index = i;
+  for(j=i+1 ; j<number ; j++ )
+  {
+   if(a[j]<a[min])
+   {
+    min = a[j] ;
+    index = j ;
+   }
+  }
+  if(index!=i)
+  {
+   temp = a[i] ;
+   a[i] = a[index] ;
+   a[index] = temp;
+  }
+ }
+
+ for(i=0;i<number;i++)
+ {
+  cout << " " << a[i] ;
+ }
+
+}
