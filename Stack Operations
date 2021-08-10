@@ -1,0 +1,102 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class stack
+{
+    int a[5],top,n,ele;
+    
+    public:
+    stack(int i)
+    {
+        top = -1 ;
+        n = i ;
+    }
+    
+    void push();
+    void pop();
+    void display();
+};
+
+void stack :: push()
+{
+    if(top==4)
+    {
+        cout << "Stack Oveflow" << endl;
+    }
+    else
+    {
+        cout << "Enter the element" << endl;
+        cin >> ele ;
+        top++;
+        a[top] = ele;
+    }
+}
+
+void stack :: pop()
+{
+    if(top == -1)
+    {
+        cout << "Stack Underflow" << endl;
+    }
+    else
+    {
+        ele = a[top];
+        top--;
+        cout << "Poped element is: " << ele ;
+    }
+}
+
+void stack :: display()
+{
+    if(top==-1)
+    {
+        cout << "Stack is Empty" << endl;
+        return;
+    }
+    else
+    {
+        cout << "Stack is : " ;
+        for(int i=0;i<5;i++)
+        {
+            cout << " " << a[i] ;
+        }
+    }
+}
+
+int main()
+{
+    int choice;
+    stack s(5);
+    
+    do 
+    {
+        cout << " Enter your choice : " << endl;
+        cout << "1.Push Operation " << endl;
+        cout << "2.Pop Operation " << endl;
+        cout << "3.Display the Stack" << endl;
+        
+        cin >> choice ;
+        
+        switch(choice)
+        {
+            case 1:
+            s.push();
+            break;
+            
+            case 2:
+            s.pop();
+            break;
+            
+            case 3:
+            s.display();
+            break;
+            
+            default:
+            cout << "Invalid choice" << endl;
+            break;
+        }
+    }
+    while(choice!=0);
+    
+    return 0;
+}
